@@ -17,3 +17,42 @@ docker stop doulevo-template-app; docker rm doulevo-template-app; docker run -d 
 
 #### 3. Stop the container
  `docker stop doulevo-template-app`
+ 
+#### 4. Verify the application
+###### Go to `http://localhost:8080/actuator/info` in browser
+
+```json
+{
+"app": {
+    "name": "template-app",
+    "description": "Template Spring Boot project for doulevo",
+    "version": "0.0.1-SNAPSHOT",
+    "encoding": "UTF-8",
+    "java": {
+        "version": "1.8.0_121"
+        }
+    }
+}
+```
+
+###### Go to `http://localhost:8080/actuator/health` in browser
+
+```json
+{
+    "status": "UP",
+    "components": {
+    "diskSpace": {
+        "status": "UP",
+        "details": {
+            "total": 62725787648,
+            "free": 55338848256,
+            "threshold": 10485760,
+            "exists": true
+        }
+    },
+    "ping": {
+        "status": "UP"
+        }
+    }
+}
+```
